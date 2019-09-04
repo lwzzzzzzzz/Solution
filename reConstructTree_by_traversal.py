@@ -1,3 +1,5 @@
+# 根据前序(后序)和中序序列构造树
+
 class Node():
     def __init__(self, data, left, right):
         self.data = data

@@ -12,6 +12,11 @@ def fib(n):
         res.append(res[i - 1] + res[i - 2])
     return res[-1]
 
+def recurFib(n):
+    if n==2 or n==1:
+        return 1
+    else:
+        return fib(n-1) + fib(n-2)
 
 print(fib(5))
 print(res)
