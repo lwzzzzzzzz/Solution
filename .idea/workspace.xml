@@ -5,26 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="271a46b1-9fc4-42d8-a3c2-c94be940630b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/TreePathSum.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/checkSubTree.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/depthTree.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/finkLatestK.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/handMinStack.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/hand_queue.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/imageTree.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isStackSeq.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/levelTraversal.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mergeSortlinkList.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/postBST.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/reverseLinkList.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/rotatePrintMat.py" />
-      <change beforePath="$PROJECT_DIR$/dynamicFibonacci.py" afterPath="$PROJECT_DIR$/dynamicFibonacci.py" />
-      <change beforePath="$PROJECT_DIR$/is_2power.py" afterPath="$PROJECT_DIR$/is_2power.py" />
-      <change beforePath="$PROJECT_DIR$/reConstructTree_by_traversal.py" afterPath="$PROJECT_DIR$/reConstructTree_by_traversal.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/Solution.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Solution.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,73 +30,6 @@
     <SUITE FILE_PATH="coverage/Solution$hand_queue.coverage" NAME="hand_queue Coverage Results" MODIFIED="1567494269888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Solution$isStackSeq.coverage" NAME="isStackSeq Coverage Results" MODIFIED="1567516941506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Solution$levelTraversal.coverage" NAME="levelTraversal Coverage Results" MODIFIED="1567495176216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="checkSubTree.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/checkSubTree.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="depthTree.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/depthTree.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="levelTraversal.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/levelTraversal.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TreePathSum.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TreePathSum.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-180">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding>
-                <element signature="e#47#159#0" expanded="false" />
-                <element signature="e#209#497#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hand_queue.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hand_queue.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hand_stack.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hand_stack.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1170">
-              <caret line="39" column="18" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="39" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -155,12 +72,16 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="614" />
     <option name="y" value="36" />
     <option name="width" value="1522" />
     <option name="height" value="1038" />
   </component>
+  <component name="ProjectId" id="23SPOBqHsC0qlAaAPKBoqrryMkQ" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -191,27 +112,20 @@
       <pane id="Scope" />
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="SearchEverywhereHistoryKey" value="de&#9;FILE&#9;file://C:/Users/Zhen/Desktop/Solution/depthTree.py" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="de&#9;FILE&#9;file://C:/Users/Zhen/Desktop/Solution/depthTree.py" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RunManager" selected="Python.TreePathSum">
     <configuration name="TreePathSum" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Solution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -222,15 +136,18 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Solution" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TreePathSum.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="handMinStack" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Solution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -241,15 +158,18 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Solution" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/handMinStack.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="isStackSeq" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Solution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -260,15 +180,18 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Solution" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/isStackSeq.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="postBST" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Solution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -279,15 +202,18 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Solution" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/postBST.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="rotatePrintMat" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Solution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -298,34 +224,34 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Solution" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rotatePrintMat.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.handMinStack" />
-      <item index="1" class="java.lang.String" itemvalue="Python.isStackSeq" />
-      <item index="2" class="java.lang.String" itemvalue="Python.postBST" />
-      <item index="3" class="java.lang.String" itemvalue="Python.rotatePrintMat" />
-      <item index="4" class="java.lang.String" itemvalue="Python.TreePathSum" />
+    <list>
+      <item itemvalue="Python.handMinStack" />
+      <item itemvalue="Python.isStackSeq" />
+      <item itemvalue="Python.postBST" />
+      <item itemvalue="Python.rotatePrintMat" />
+      <item itemvalue="Python.TreePathSum" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.TreePathSum" />
-        <item index="1" class="java.lang.String" itemvalue="Python.rotatePrintMat" />
-        <item index="2" class="java.lang.String" itemvalue="Python.postBST" />
-        <item index="3" class="java.lang.String" itemvalue="Python.isStackSeq" />
-        <item index="4" class="java.lang.String" itemvalue="Python.handMinStack" />
+      <list>
+        <item itemvalue="Python.TreePathSum" />
+        <item itemvalue="Python.rotatePrintMat" />
+        <item itemvalue="Python.postBST" />
+        <item itemvalue="Python.isStackSeq" />
+        <item itemvalue="Python.handMinStack" />
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -390,15 +316,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="3" />
-    </breakpoint-manager>
-    <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/checkSubTree.py">
