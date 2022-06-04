@@ -6,7 +6,18 @@
 @Decs:
 """
 
-"""链表类"""
+"""链表类/方法"""
+
+
+def print_linked(head):
+    p = head
+    s = ""
+    if p is None:
+        print("input linked list is empty")
+    while p:
+        s += str(p.value) + " "
+        p = p.next
+    print(s)
 
 
 class Node:

@@ -36,19 +36,37 @@ class Solution:
     def __init__(self, nums):
         self.nums = nums
 
-    #  双色问题
+    # # 单色问题 即把等于的放在最后，其他的仍然保持原有顺序
+    # def else_equal(self, given):
+    #     # not_equal指示的不等于给定数值的插入位置初始为0，即插入到第一个位置
+    #     not_equal, i = 0, 0  # 本质上就是荷兰国旗问题，甚至更简单，这里就是把等于给定数字的元素放在最后面（荷兰国旗问题是小于等于放在前面大于放在后面）
+    #     while i <= len(self.nums) - 1:
+    #         if self.nums[i] != given:  # 每次发现有不等于的就插入到not_equal处
+    #             self.nums[not_equal], self.nums[i] = self.nums[i], self.nums[not_equal]
+    #             not_equal += 1
+    #         i += 1
+
+    #  双色问题 其中一种为小于等于不分内部顺序排在前面，大于排在后面
     def small_big_rank(self, given):
-        less_or_equal, ptr = 0, 0
+        less_or_equal, ptr = 0, 0  # 在所有荷兰国旗问题，左指针总是指示着要满足下面if条件的元素待插入位置，即满足if条件的下一个位置
         while ptr <= len(self.nums) - 1:
+            # 此处根据符号有不同的双色问题排序
+            #   1、self.nums[ptr] != given 表示不等于given的排在前面，等于的排在后面；
+            #   2、self.nums[ptr] == given 表示等于given的排在前面，不等于的排在后面；
+            #   3、self.nums[ptr] >= given 表示大于等于given的排在前面，小于的排在后面；
+            #   4、self.nums[ptr] > given 表示大于given的排在前面，小于等于的排在后面；
+            #   ...
+
             if self.nums[ptr] <= given:
                 # if可加可不加，只是可能可以减少几次不需要的原地swap （起效于循环开始时前面正好都是小于等于given的case，但凡有一个大于的，后面都需要交换 鸡肋的要死）
-                if less_or_equal != ptr:
-                    self.nums[ptr], self.nums[less_or_equal] = self.nums[less_or_equal], self.nums[ptr]
+                # if less_or_equal != ptr:
+                #     self.nums[ptr], self.nums[less_or_equal] = self.nums[less_or_equal], self.nums[ptr]
+                self.nums[ptr], self.nums[less_or_equal] = self.nums[less_or_equal], self.nums[ptr]
                 less_or_equal += 1
             ptr += 1
 
-    #  三色问题
-    def small_given_big_rank(self, given):
+    #  三色问题 即小于在前面 等于在中间 大于在后面
+    def small_equal_big_rank(self, given):
         less, ptr, greater = 0, 0, len(self.nums) - 1
         while ptr <= greater:
             if self.nums[ptr] < given:
@@ -67,5 +85,5 @@ if __name__ == "__main__":
     s = Solution(nums)
     s.small_big_rank(3)
     print(s.nums)
-    s.small_given_big_rank(3)
+    s.small_equal_big_rank(3)
     print(s.nums)

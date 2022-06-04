@@ -33,6 +33,7 @@ def make_loop(head, in_loop):
     return p.next
 
 
+# 链表是否有环，入环点，环长
 def is_loop(head):
     if head is None or head.next is None:
         return None
@@ -66,6 +67,7 @@ class Solution:
             3.2 都有环交叉点在入环点之前
             3.3 都有环交叉点在环内
     """
+
     def __init__(self, h1, h2):
         self.head1 = h1
         self.head2 = h2
@@ -81,6 +83,7 @@ class Solution:
             return self.get_loop_cross_node()
         return None
 
+    #  求两个无环链表的交点
     def get_no_loop_cross_node(self):
         p1, p2 = self.head1, self.head2
         len1, len2 = 1, 1
@@ -111,8 +114,9 @@ class Solution:
             p2 = p2.next
         return p1
 
-
+    #  求两个有环链表的交点
     def get_loop_cross_node(self):
+        # 3.2 都有环交叉点在入环点之前
         # 当出现3.2的情况，其实和无环情况是一样的，只是把最后节点都换成入环节点
         p1, p2 = self.head1, self.head2
         len1, len2 = 1, 1
@@ -141,7 +145,8 @@ class Solution:
                 p2 = p2.next
             return p1  # 返回3.2情况
 
-
+        # 3.1 都有环但无交叉点
+        # 3.3 都有环交叉点在环内
         # 为区分3.1和3.3的情况，只需要以一个入环点绕一圈，假设绕链表1的环途中发现，有链表环2的入环点，说明两者的交叉点为整个环，则最近的交叉点为链表1或2的入环点均可
         circle_flag = self.in_loop_node1.next
         while circle_flag != self.in_loop_node1:
