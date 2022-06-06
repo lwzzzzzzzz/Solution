@@ -6,6 +6,7 @@
 - [链表](./LinkedList)
 - [查找](./Search)
 - [排序](./Sort)
+- [空间换时间技巧](./SpaceForTime)
 - [双指针](./TwoPointer)
 - [暴力递归与动态规划](./ViolenceRecursion&DynamicProgramming)
 
