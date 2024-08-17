@@ -2,7 +2,7 @@
 """
 @Date:       2021/5/21 4:49 下午
 @Author:     wz
-@File:       LongestSubstringWithKUniqueCharacters.py
+@File:       k个字符组成的最长子字符串.py
 @Decs:
 """
 
@@ -34,10 +34,9 @@ class Solution():
 
         left, right = 0, 0
         for i in range(len(s)):
-
-            try:
+            if s[right] in window:
                 window[s[right]] += 1
-            except:
+            else:
                 window[s[right]] = 1
 
             while len(window.keys()) > k:
@@ -54,8 +53,7 @@ class Solution():
                     res_index = [left, right]
 
             right += 1
-
-        return res
+        return res, s[res_index[0]: res_index[1]+1]
 
 
 if __name__ == "__main__":

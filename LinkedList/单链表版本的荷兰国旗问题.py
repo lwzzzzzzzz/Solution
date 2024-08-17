@@ -78,8 +78,10 @@ class Solution:
             return equal
         return big
 
-
-        return p
+        # 这里理论上可以像labuladong里面处理的这个，small, equal, big头结点都用一个dummy结点替换；
+        # 同时，因为需要修改原有的链表结构，在p = p.next的时候，
+        #   通过ListNode n = p.next;  p.next = null;  p = n;这样断开前后结点的联系，
+        #   方便后续进行链表的合并，直接操作dummy结点和small_tail, equal_tail, big_tail即可，不再需要分类讨论，最后返回small的dummy.next
 
 
 if __name__ == "__main__":

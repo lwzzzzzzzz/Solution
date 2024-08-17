@@ -32,7 +32,7 @@ class Solution():
         intervals = self.intervals
 
         # 按区间终止位置排好序
-        intervals = sorted(intervals, key =lambda x: x[1])
+        intervals = sorted(intervals, key=lambda x: x[1])
         count = 1
         end = intervals[0][1]
         for interval in intervals:  # 贪心在 永远想要使得剩下可选择区间最大的，但是只能选择符合下面条件的

@@ -10,14 +10,14 @@
 2、对自身做对撞指针
     其中TwoSum问题最为典型
     - [TwoSum2](./TwoSum2.py)
-    - [SumOfSquareNumbers](./SumOfSquareNumbers.py)
+    - [SumOfSquareNumbers](./正整数写成平方和是否有整数解.py)
     - [ValidPalindrome2](./ValidPalindrome2.py)
    > 适用于这种方式的问题，一般是有唯一解（但凡事皆有例外 - -！
 
 3、对自身做快慢指针
     以快慢指针维护一个滑动窗口(slide window)，处理或判断滑动窗口内的子序列，返回需要的结果
     - [MinimumWindowSubstring](./MinimumWindowSubstring.py)
-    - [LongestSubstringWithKUniqueCharacters](LongestSubstringWithKUniqueCharacters.py)    
+    - [LongestSubstringWithKUniqueCharacters](k个字符组成的最长子字符串.py)    
         
    > 其本质就是通过滑动窗口穷尽所有符合要求的连续子序列，再在窗口移动（穷举）过程中保留最优解
 

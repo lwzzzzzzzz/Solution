@@ -2,13 +2,15 @@
 """
 @Date:       2021/5/19 4:27 下午
 @Author:     wz
-@File:       SumOfSquareNumbers.py
+@File:       正整数写成平方和是否有整数解.py
 @Decs:
 """
 
 '''
-Given a non-negative integer c, your task is to decide whether there’re two integers a and b such that a^2 + b^2 = c.
+给定一个非负数num，是否能分解成正数a^2 + b^2 = c.
 
+1. 先开个方，求出num的右边界上限
+2. 在0-右边界直接做收缩
 
 '''
 

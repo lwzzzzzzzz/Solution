@@ -30,14 +30,14 @@ class Solution:
         for i in range(len(temperatures)):
             # 当遍历到的元素比栈顶元素大的话，找到了栈顶元素根据题意的结果；同理对于栈内所有元素，当满足下标i位置和栈顶元素满足条件，反复出栈返回结果
             while stack1 and temperatures[stack1[-1]] < temperatures[i]:
-                peek = stack1.pop(0)  # 处理栈顶元素，返回栈顶元素下标
+                peek = stack1.pop(0)  # 处理栈底元素，返回栈底元素下标
                 res[peek] = i - peek
             stack1.append(i)  # 下标入栈
-        return  res
+        return res
 
 
 if __name__ == "__main__":
     temperatures = [5, 7, 7, 3, 8, 9]
     s = Solution()
-    print("res: ", s.dailyTemperatures(temperatures))
+    # print("res: ", s.dailyTemperatures(temperatures))
 

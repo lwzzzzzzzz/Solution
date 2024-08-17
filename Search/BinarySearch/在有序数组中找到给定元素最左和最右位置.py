@@ -2,7 +2,7 @@
 """
 @Date:       2021/5/23 4:51 下午
 @Author:     wz
-@File:       FindFirstAndLastPositionOfElement.py
+@File:       在有序数组中找到给定元素最左和最右位置.py
 @Decs:
 """
 
