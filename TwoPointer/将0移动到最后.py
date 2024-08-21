@@ -14,7 +14,7 @@ class Solution:
     def moveZeroes(self, nums):
         not_zero, i = 0, 0  # not_zero记录非0元素插入的位置
         while i < len(nums):
-            if nums[i] != 0:
+            if nums[i] != 0:  # 每次nums[i] != 0，其实也就是not_zero的count，自然not_zero++
                 nums[not_zero], nums[i] = nums[i], nums[not_zero]
                 not_zero += 1  # 插入完成，not_zero ++
             i += 1
