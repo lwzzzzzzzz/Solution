@@ -9,21 +9,18 @@ import collections
 
 
 class Solution:
-    def function(self, s: str) -> int:
-        res = 0
-        left, right = 0, 0
-
-        set1 = set()
-        m1 = dict()
-        for right in range(len(s)):
-            if s[right] in set1:
-                while left <= m1[s[right]]:
-                    left += 1
-            set1.add(s[right])
-            m1[s[right]] = right
-
-            res = max(res, right - left + 1)
-
+    def inorderTraversal(self, root):
+        res = []
+        cur = root
+        s1 = []
+        while cur or s1:
+            while cur:
+                s1.append(cur.val)
+                cur = cur.left
+            node = s1[-1]
+            s1.pop(-1)
+            res.append(node.val)
+            cur = cur.right
         return res
 
 
