@@ -37,9 +37,9 @@ def make_loop(head, in_loop):
 def is_loop(head):
     if head is None or head.next is None:
         return None
-    slow, fast = head.next, head.next.next
+    slow, fast = head.next, head.next.next  # 因为跳出循环的条件是slow == fast，所以让slow和fast都往前走了一步
     while slow != fast:
-        if fast.next is None or fast.next.next is None:  # 如无环fast先到尾部，并返回None
+        if fast is None or fast.next is None:  # 如无环fast先到尾部，并返回None
             return None
         slow = slow.next
         fast = fast.next.next

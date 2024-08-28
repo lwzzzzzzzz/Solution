@@ -24,22 +24,36 @@
 """
 class Solution:
     def isValid(self, s: str) -> bool:
-        stack1 = []
-        tmp = {"]": "[", ")": "(", "}": "{"}
+        # stack1 = []
+        # tmp = {"]": "[", ")": "(", "}": "{"}
+        #
+        # for each in s:
+        #     if each in tmp.keys():
+        #         if stack1 and tmp[each] == stack1[-1]:
+        #             stack1.pop()
+        #         else:
+        #             return False
+        #     else:
+        #         stack1.append(each)
+        #
+        # if stack1:
+        #     return False
+        # else:
+        #     return True
 
-        for each in s:
-            if each in tmp.keys():
-                if stack1 and tmp[each] == stack1[-1]:
-                    stack1.pop()
-                else:
-                    return False
+        d1 = {"(": ")", "[": "]", "{": "}"}
+
+        s1 = []
+        for i in range(len(s)):
+            if s[i] in d1.keys():
+                s1.append(s[i])
             else:
-                stack1.append(each)
+                if not s1 or d1[s1[-1]] != s[i]:
+                    return False
+                s1.pop()
 
-        if stack1:
-            return False
-        else:
-            return True
+        return not s1
 
 if __name__ == "__main__":
     s = Solution()
+    print(s.isValid("]"))
