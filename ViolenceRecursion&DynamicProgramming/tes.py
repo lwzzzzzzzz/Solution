@@ -9,22 +9,13 @@ import collections
 
 
 class Solution:
-    def inorderTraversal(self, root):
-        res = []
-        cur = root
-        s1 = []
-        while cur or s1:
-            while cur:
-                s1.append(cur.val)
-                cur = cur.left
-            node = s1[-1]
-            s1.pop(-1)
-            res.append(node.val)
-            cur = cur.right
-        return res
+    def function(self, temperatures):
+        # return res
+        pass
 
 
 if __name__ == "__main__":
     s = Solution()
-    xxx = s.function("abcc")
+    temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
+    xxx = s.function(temperatures)
     print(xxx)
