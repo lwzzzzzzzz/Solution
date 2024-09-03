@@ -2,9 +2,10 @@
 """
 @Date:       2021/5/5 4:34 下午
 @Author:     wz
-@File:       BestTimeToBuyAndSellStock2.py
+@File:       买卖股票的最佳时机.py
 @Decs:
 """
+import sys
 
 '''
 给定一个数组 prices ，其中 prices[i] 是一支给定股票第 i 天的价格。
@@ -74,6 +75,23 @@ class Solution:
 
         return profit
 
+    def best_time_maximum_profit_only_one_time(self):
+        prices = self.prices
+
+        profit = 0.0
+        min_price = sys.maxsize  # min_price记录遍历到i时刻，最低股票价格
+        for i in range(len(prices)):
+            # 理论上只需要下面两行就行，记录 遍历到i时刻最低股票价格 和 当前最大收益，不断更新就能得到结果。
+            # min_price = min(prices[i], min_price)
+            # profit = max(prices[i] - min_price, profit)
+
+            if min_price > prices[i]:  # if可以少掉一点计算，遇见更便宜的股价，不可能卖出，因为只会亏钱。。。
+                min_price = prices[i]
+            else:
+                if prices[i] - min_price > profit:  # prices[i]-min_price算出当前收益，与最大收益比较
+                    profit = prices[i] - min_price
+        return profit
+
 
 if __name__ == "__main__":
     prices = [3, 6, 1, 6, 2, 2, 2, 7, 9]
@@ -81,3 +99,4 @@ if __name__ == "__main__":
     solution = Solution(prices)
     print(solution.best_time_maximum_profit())
     print(solution.best_time_maximum_profit_dp())
+    print(solution.best_time_maximum_profit_only_one_time())

@@ -5,6 +5,7 @@
 @File:       MergeSort.py
 @Decs:
 """
+from LinkedList.LinkedList import Node, LinkedList
 
 
 class MergeSort:
@@ -40,11 +41,12 @@ class MergeSort:
 
         """
 
-        if start>=end:
+        if start >= end:
             return nums
 
         # 拆分list （下标控制 逻辑拆分）在分布式大规模排序中进行物理拆分
-        mid = start + (end - start) // 2 # (start + end) >> 1 与 start + (end - start) >> 1 不同在于，当start + end可能超过Integer.MAX
+        mid = start + (
+                    end - start) // 2  # (start + end) >> 1 与 start + (end - start) >> 1 不同在于，当start + end可能超过Integer.MAX
         start1, end1 = start, mid
         start2, end2 = mid + 1, end
 
@@ -53,7 +55,7 @@ class MergeSort:
 
         # 合并nums[start1:end1+1]和nums[start2:end2+1]
         k = start
-        while start1<=end1 and start2<=end2:
+        while start1 <= end1 and start2 <= end2:
             if nums[start1] <= nums[start2]:
                 res[k] = nums[start1]
                 start1 += 1
@@ -62,12 +64,12 @@ class MergeSort:
                 start2 += 1
             k += 1
 
-        while start1<=end1:
+        while start1 <= end1:
             res[k] = nums[start1]
             k += 1
             start1 += 1
 
-        while start2<=end2:
+        while start2 <= end2:
             res[k] = nums[start2]
             k += 1
             start2 += 1
@@ -77,12 +79,50 @@ class MergeSort:
             nums[i] = res[i]
         return nums
 
+    def recursive_merge_linked_sort(self, head):
+        if not head or not head.next:
+            return head
+        slow, fast = head, head.next
+        while fast and fast.next:  # 通过快慢指针寻找中点mid
+            fast = fast.next.next
+            slow = slow.next
+        mid, slow.next = slow.next, None
+
+        left = self.recursive_merge_linked_sort(head)
+        right = self.recursive_merge_linked_sort(mid)
+
+        dummy = Node(0)
+        h = dummy
+        while left and right:
+            if left.value < right.value:
+                h.next = left
+                left = left.next
+            else:
+                h.next = right
+                right = right.next
+            h = h.next
+
+        if left:
+            h.next = left
+        else:
+            h.next = right
+        return dummy.next
+
 
 if __name__ == "__main__":
 
-    nums = [1,4,7,1,3,7,9,2,0,3]
+    nums = [1, 4, 7, 1, 3, 7, 9, 2, 0, 3]
     res = len(nums) * [0]
     start, end = 0, len(nums) - 1
     sort = MergeSort(nums)
-
     print("归并排序结果为: {}".format(sort.recursive_merge_sort(nums, res, start, end)))
+
+    numss = [1, 4, 7, 1, 3, 7, 9, 2, 0, 3]
+    linked = LinkedList(numss)
+    head = linked.head.next
+    print(linked)
+    p = sort.recursive_merge_linked_sort(head)
+    print("链表归并排序结果为:", end=' ')
+    while p:
+        print(p.value, end=' ')
+        p = p.next

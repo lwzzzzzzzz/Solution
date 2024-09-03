@@ -13,7 +13,7 @@
     较简单，没啥技巧，做就完事了
     - [AssignCookies](./AssignCookies.py)
     - [CanPlaceFlowers](./CanPlaceFlowers.py)
-    - [BestTimeToBuyAndSellStock2](./BestTimeToBuyAndSellStock2.py)
+    - [BestTimeToBuyAndSellStock2](./买卖股票的最佳时机.py)
     - [NonDecreasingArray](./NonDecreasingArray.py)
     
 2. 多维度优化问题
