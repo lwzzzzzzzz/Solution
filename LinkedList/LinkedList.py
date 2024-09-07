@@ -26,6 +26,13 @@ class Node:
         self.next = None
 
 
+class RandomNode:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+        self.random = None
+
+
 class LinkedList:
     def __init__(self, nums):
         self.head = Node(None)

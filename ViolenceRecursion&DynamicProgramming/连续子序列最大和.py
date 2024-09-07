@@ -2,7 +2,7 @@
 """
 @Date:       2022/5/28 22:53
 @Author:     wz
-@File:       求连续子序列最大和.py
+@File:       连续子序列最大和.py
 @Decs:
 """
 

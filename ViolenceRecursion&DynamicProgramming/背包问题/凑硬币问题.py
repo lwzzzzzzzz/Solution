@@ -217,6 +217,29 @@ class Solution:
         print(dp)
         return dp[0][limit_price]
 
+    def one_list_dp(self, limit):
+        n = len(self.coins)
+        dp = [[0] * (limit + 1) for _ in range(n+1)]
+        # dp[0] = 1
+        # for i in range(n):
+        #     for c in range(limit, -1, -1):
+        #         if c >= self.coins[i]:
+        #             dp[c] = dp[c] + dp[c-self.coins[i]]
+
+        for i in range(n + 1):
+            dp[i][0] = 1
+
+        for c in range(1, limit + 1):
+            for i in range(0, n):
+                if c >= self.coins[i]:
+                    dp[i+1][c] = dp[i][c] + dp[i][c - self.coins[i]]
+                else:
+                    dp[i+1][c] = dp[i][c]
+
+        print(dp)
+        return dp[n][limit]
+
+
 
 if __name__ == "__main__":
     coins = [1, 3, 3, 1, 1, 2]
@@ -231,3 +254,6 @@ if __name__ == "__main__":
     s.min_coins(limit)
     s.min_coins2(limit)
     print("min coins dp ways: ", s.dp_min_coins(limit))
+
+    # s.one_list_dp(limit)
+    print("min coins one_list_dp ways: ", s.one_list_dp(limit))
