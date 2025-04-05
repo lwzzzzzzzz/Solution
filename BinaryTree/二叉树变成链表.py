@@ -5,6 +5,7 @@
 @File:       二叉树变成链表.py
 @Decs:
 """
+from BinaryTree import build_tree_from_level_order, print_vertical_tree
 
 
 class Solution:
@@ -41,4 +42,8 @@ class Solution:
 
 
 if __name__ == "__main__":
+    head = build_tree_from_level_order([1, 2, 3, 4, 5, None, 7])
+    print_vertical_tree(head)
     s = Solution()
+    s.loop_flatten(head)
+    print_vertical_tree(head)

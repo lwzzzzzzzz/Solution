@@ -6,7 +6,7 @@
 @Decs:
 """
 
-from BinaryTree import Node
+from BinaryTree import Node, build_tree_from_level_order, print_vertical_tree
 
 
 class Solution:
@@ -36,21 +36,8 @@ class Solution:
 
 
 if __name__ == "__main__":
-    head = Node(1)
-    n2 = Node(2)
-    n3 = Node(3)
-    n4 = Node(4)
-    n5 = Node(5)
-    n6 = Node(6)
-    # n7 = Node(7)
-
-    head.right = n2
-    head.left = n3
-    n2.left = n4
-    # n3.right = n5
-    n4.left = n6
-    n6.left = n5
-    # n4.right = n7
+    head = build_tree_from_level_order([1, 2, 2, 4, 5, 5, 4])
+    print_vertical_tree(head)
 
     s = Solution(head)
     print(s.is_balanced_binary_tree(head))

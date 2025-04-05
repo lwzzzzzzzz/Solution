@@ -67,10 +67,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    head = Node(1)
-    n2 = Node(2)
-    n3 = Node(3)
-    n4 = Node(4)
+    head = TreeNode(1)
+    n2 = TreeNode(2)
+    n3 = TreeNode(3)
+    n4 = TreeNode(4)
     # n5 = Node(5)
     # n6 = Node(6)
     # n7 = Node(7)

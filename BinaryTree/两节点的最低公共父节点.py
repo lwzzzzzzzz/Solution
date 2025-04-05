@@ -6,7 +6,7 @@
 @Decs:
 """
 
-from BinaryTree import Node
+from BinaryTree import Node, print_vertical_tree
 
 
 class Solution:
@@ -91,12 +91,11 @@ class Solution:
 
         """
         ps:虽不是重点，但是我们可以看到，在先序遍历的位置，我们进行了返回，在得到左右子树的结果后，在后序遍历位置又做了返回；
-            仔细想，整个过程确实是应该在刚遇到o1或o2节点时，即先序时，返回该节点；也确实需要在得到左右子树结果后，即后序时，针对左右子树结果的不同，
-            分类讨论来返回最终结果。
+            仔细想，整个过程确实是应该在刚遇到o1或o2节点时，即先序时返回该节点，完成递归树的剪枝；
+            也确实需要在得到左右子树结果后，即后序时，针对左右子树结果的不同，分类讨论来返回最终结果。
         有一些题，不区分[先中后]序遍历；
         有一些题，需要拿到左右子树全部信息后做处理，则需要在后序；
         有一些题，只需要拿到左节点的值，就可以大概判断需不需要再遍历右子树，这时候应该放在中序
-        还有一些提，如本题，只需要第一次遇见就可以决定是否返回，则时候就可以直接放在先序处。
         """
 
 
@@ -116,6 +115,7 @@ if __name__ == "__main__":
     n4.left = n6
     n4.right = n7
 
+    print_vertical_tree(head)
     s = Solution(head)
     print(s.lowermost_common_ancestor_dict(n2, n3).value)
     print(s.lowermost_common_ancestor(head, n2, n3).value)

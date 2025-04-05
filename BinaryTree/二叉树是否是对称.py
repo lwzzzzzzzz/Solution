@@ -5,7 +5,7 @@
 @File:       二叉树是否是对称.py
 @Decs:
 """
-from BinaryTree import Node
+from BinaryTree import Node, build_tree_from_level_order, print_vertical_tree
 
 
 class Solution:
@@ -36,14 +36,6 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-    head = Node(1)
-    n2 = Node(2)
-    n3 = Node(2)
-    n4 = Node(3)
-    n5 = Node(3)
-
-    head.left = n2
-    head.right = n3
-    n3.left = n4
-    n2.right = n5
+    head = build_tree_from_level_order([1, 2, 2, 4, 5, 5, 4])
+    print_vertical_tree(head)
     print(s.is_symmetrical_tree(head, head))

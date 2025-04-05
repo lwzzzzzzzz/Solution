@@ -5,6 +5,7 @@
 @File:       二叉树直径.py
 @Decs:
 """
+from BinaryTree import build_tree_from_level_order, print_vertical_tree
 
 
 class Solution:
@@ -17,9 +18,10 @@ class Solution:
           4  5 6  7
         其中最长的链为 4-1-2-3-7 则有4条边，直径为4
     """
-    def diameterOfBinaryTree(self, root):
+    def diameter_of_binary_tree(self, root):
         diameter = []
         self.recursion_depth(root, diameter)
+        print(diameter)
         return max(diameter)
 
     def recursion_depth(self, p, diameter):
@@ -29,7 +31,7 @@ class Solution:
         l = self.recursion_depth(p.left, diameter)
         r = self.recursion_depth(p.right, diameter)
         cur_node_path = l + r  # 对于当前节点，直径为：左边深度 + 1 + 右边深度 - 1
-        diameter.append(cur_node_path)
+        diameter.append([(p.value, cur_node_path)])
 
         depth = max(l, r) + 1
         return depth
@@ -53,3 +55,7 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
+    head = build_tree_from_level_order([1, 2, None, 4, 5, 6, 7, None, 8])
+    print_vertical_tree(head)
+
+    s.diameter_of_binary_tree(head)

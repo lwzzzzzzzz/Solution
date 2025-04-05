@@ -6,69 +6,32 @@
 @Decs:
 """
 
-from BinaryTree import Node
-from pythonds.basic.stack import Stack
+from BinaryTree import Node, print_vertical_tree, build_tree_from_level_order
 import queue
 
 
-def traversal(ptr, res, pattern="pre"):
-    """
-        前中后遍历递归实现
-    """
-    if ptr is None:
-        return
+def traversal(head1, pattern):
+    def recursion_traversal(ptr):
+        """
+            前中后遍历递归实现
+        """
+        if ptr is None:
+            return
 
-    if pattern == "pre":
-        res.append(ptr.value)
+        if pattern == "pre":
+            res.append(ptr.value)
 
-    traversal(ptr.left, res, pattern)
-    if pattern == "in":
-        res.append(ptr.value)
+        recursion_traversal(ptr.left)
+        if pattern == "in":
+            res.append(ptr.value)
 
-    traversal(ptr.right, res, pattern)
-    if pattern == "post":
-        res.append(ptr.value)
+        recursion_traversal(ptr.right)
+        if pattern == "post":
+            res.append(ptr.value)
 
-
-# 非递归实现
-# def loop_traversal(ptr, pattern="pre"):
-#     """
-#         用一个栈完美地模拟了递归的函数栈调用过程，即 先压左 -> 再压右 -> 出栈 的动态过程
-#         前中后序非递归实现
-#     """
-#
-#     def push_left_node(ptr1):
-#         left = ptr1
-#
-#         while left:
-#             if pattern == "pre":  # 先序遍历 即压栈前对其打印
-#                 print(left.value)
-#             s1.push(left)
-#             left = left.left
-#
-#     visited = Node(None)  # 引入visited节点，标识刚刚被访问过的子树的根节点
-#     s1 = Stack()
-#
-#     # 先压左
-#     push_left_node(ptr)  # 首先遍历到左节点压栈直到节点为None，模拟递归当中永远先对左节点递归调用的操作，即：函数调用栈压栈的过程
-#
-#     while not s1.isEmpty():
-#
-#         node = s1.peek()
-#         # if （节点没有左节点了 或者 左边被访问了） && 右边没有被访问:
-#         #       node.left is None 条件表示节点没有左节点了，即此时就可以开始压栈右子树节点了
-#         if (node.left is None or node.left == visited) and node.right != visited:  # 条件缺一不可
-#             if pattern == "in":
-#                 print("loop in_order node value:", node.value)
-#             push_left_node(node.right)  # 再压右
-#
-#         # if 节点没有右节点了 或者 右边也被访问了:
-#         #       node.right is None 条件表示节点没有右节点了，而经过上一条if的判断，该节点左子树已经压过栈了，
-#         #                                 所以按照递归的调用栈逻辑，此时该节点应该被pop
-#         if node.right is None or node.right == visited:  # 条件缺一不可
-#             if pattern == "post":
-#                 print("loop post_order node value:", node.value)
-#             visited = s1.pop()  # 出栈
+    res = []
+    recursion_traversal(head1)
+    return res
 
 
 def level_traversal(ptr, level=1, level_res=None):
@@ -88,39 +51,6 @@ def level_traversal(ptr, level=1, level_res=None):
     level_traversal(ptr.right, level + 1, level_res)
 
     return level_res
-
-
-# def loop_level_traversal(ptr):
-#     """
-#         非递归层序遍历1
-#     """
-#     q = queue.Queue()
-#     level_map = dict()  # 记录每个节点所在的层数
-#     cur_level_width = 0  # 当前层宽度，初始化为0，当前还没有节点出队列
-#     cur_level = 1  # 当前所在层级，初始化为根节点第一层
-#     max_width = 0  # 记录的树最大宽度，
-#     if ptr:
-#         q.put(ptr)
-#         level_map[ptr] = 1
-#
-#     while not q.empty():
-#         node = q.get()  # 节点出队后，进行统计和处理
-#         cur_node_level = level_map[node]  # 拿到当前节点所在层
-#         if cur_node_level == cur_level:  # 如果 当前节点所在层 等于 当前层 时，当前层宽度+1
-#             cur_level_width += 1
-#         else:  # 否则当前层遍历完成，此时这个节点是下一层的节点了，比较当前层宽度和已知前面层的最大宽度，进行比较，取较大值
-#             max_width = max(max_width, cur_level_width)
-#             cur_level += 1  # 当前层遍历完成，进入下一层
-#             cur_level_width = 1  # 当前层遍历完成，进入下一层，初始化为1，即这个节点被统计
-#
-#         if node.left:
-#             q.put(node.left)
-#             level_map[node.left] = level_map[node] + 1  # 记录节点所在层数
-#         if node.right:
-#             q.put(node.right)
-#             level_map[node.right] = level_map[node] + 1  # 记录节点所在层数
-#     # print(level_map)
-#     print("max_width: ", max_width)
 
 
 def loop_level_traversal2(ptr):
@@ -157,12 +87,12 @@ def loop_traversal(root, pattern="pre"):
     while cur or s1:
         while cur:  # 左节点压栈
             if pattern == "pre":
-                res.append(cur.value)  # 中序结果
+                res.append(cur.value)  # 前序结果
             s1.append(cur)
             cur = cur.left
 
         cur = s1[-1]
-        # 其实中序和后序都是一个过程，每个几点入栈出栈一次，只不过出栈的时间点不一样，遍历的结果就不一样
+        # 其实中序和后序都是一个过程，每个节点入栈出栈一次，只不过出栈的时间点不一样，遍历的结果就不一样
         if pattern == "in":
             s1.pop(-1)
             res.append(cur.value)  # 中序结果
@@ -178,43 +108,23 @@ def loop_traversal(root, pattern="pre"):
             else:  # 否则将右节点压栈
                 cur = cur.right
 
+        if pattern == "pre":
+            s1.pop(-1)
+            cur = cur.right
     return res
 
 
 if __name__ == "__main__":
-    head = Node(1)
-    n2 = Node(2)
-    n3 = Node(3)
-    n4 = Node(4)
-    n5 = Node(5)
-    n6 = Node(6)
-    n7 = Node(7)
+    head = build_tree_from_level_order([1, 2, 3, 4, 5, 6, 7])
+    print_vertical_tree(head)
 
-    head.left = n2
-    head.right = n3
-    n2.left = n4
-    n3.right = n5
-    n4.left = n6
-    n4.right = n7
+    print("pre_traversal: ", traversal(head, pattern="pre"))
+    print("in_traversal: ", traversal(head, pattern="in"))
+    print("post_traversal: ", traversal(head, pattern="post"))
 
-    res = []
-    traversal(head, res, pattern="pre")
-    print("pre_traversal: ", res)
-
-    res = []
-    traversal(head, res, pattern="in")
-    print("in_traversal: ", res)
-
-    res = []
-    traversal(head, res, pattern="post")
-    print("post_traversal: ", res)
-
-    # print("loop_pre_traversal: ", loop_traversal(head, pattern="pre"))
+    print("loop_pre_traversal: ", loop_traversal(head, pattern="pre"))
     print("loop_in_traversal: ", loop_traversal(head, pattern="in"))
     print("loop_post_traversal: ", loop_traversal(head, pattern="post"))
 
-    res = level_traversal(head)
-    print("level_traversal: ", res)
-
-    res2 = loop_level_traversal2(head)
-    print("loop_level_traversal2: ", res2)
+    print("level_traversal: ", level_traversal(head))
+    print("loop_level_traversal2: ", loop_level_traversal2(head))
