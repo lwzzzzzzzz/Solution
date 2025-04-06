@@ -10,3 +10,7 @@
 - [双指针](./TwoPointer)
 - [暴力递归与动态规划](./ViolenceRecursion&DynamicProgramming)
 
+### Requirements
+- python 3.x
+- matplotlib (for visualize tree)
+- networkx (for visualize tree)
