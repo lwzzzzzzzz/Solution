@@ -41,7 +41,7 @@ class Solution:
         然后让map每一个元素入堆中
     """
 
-    def topKFrequent(self, nums, k):
+    def topK_frequent(self, nums, k):
         count = dict()
         for num in nums:
             if num in count.keys():
@@ -71,5 +71,5 @@ if __name__ == "__main__":
     xxx = s.function(nums, k)
     print(xxx)
 
-    re = s.topKFrequent(nums, k)
+    re = s.topK_frequent(nums, k)
     print(re)

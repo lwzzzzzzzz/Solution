@@ -20,7 +20,7 @@ question：
 '''
 
 
-class Solution():
+class Solution:
     def __init__(self, array):
         self.array = array
 

@@ -17,7 +17,7 @@ Output: 1
 '''
 
 
-class Solution():
+class Solution:
     def erase_overlap_intervals(self, intervals):
 
         # 此题刚拿到完全不知道该如何下手 - -

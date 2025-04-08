@@ -18,7 +18,7 @@ Output: 5
 '''
 
 
-class Solution():
+class Solution:
     def __init__(self, children):
         self.children = children
 

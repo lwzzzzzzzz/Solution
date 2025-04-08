@@ -14,6 +14,7 @@ heap的基本属性，
 - 对于heap来说，其核心有1、堆的向上调整（往堆尾插入）2、向下调整（pop堆顶）**牢记**
 """
 
+
 class Heap:
 
     def __init__(self, nums):
@@ -100,6 +101,3 @@ if __name__ == "__main__":
 
     h.heap_sort()
     print(h.nums)
-
-
-

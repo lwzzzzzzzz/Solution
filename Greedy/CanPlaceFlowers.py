@@ -21,7 +21,7 @@ Output: False
 '''
 
 
-class Solution():
+class Solution:
     def __init__(self, flowerbed):
         self.flowerbed = flowerbed
 
