@@ -23,8 +23,35 @@ class Solution:
         cur = self.p
         post = cur
 
-        # 每次循环的起点都是cur和post同时指向当前节点；pre指向上一节点（未进入循环前则为空指针）
-        # 因跳出循环的条件时cur为空指针，则说明pre已经到了原链表的最后一个节点，也就是说pre指向的是反转链表的第一个节点
+        '''
+        1.  pre  cur/post
+             ↓    ↓
+            null  a -> b -> c -> null
+            
+        2.   pre cur  post
+              ↓   ↓    ↓
+            null  a -> b -> c -> null
+            
+        3.   pre   cur  post
+              ↓     ↓    ↓
+            null <- a    b -> c -> null
+            
+        4.      pre/cur  post
+                    ↓    ↓
+            null <- a    b -> c -> null
+            
+        5.         pre  cur/post
+                    ↓    ↓
+            null <- a    b -> c -> null
+            
+        通过以上5步，就完成了一次while迭代，同时我们可以看到，pre指针始终指向新的链表头节点，cur指针始终指向旧链表的头节点，
+        所以自然，迭代终止条件就是cur遍历到null停止，同时最后返回pre
+        
+        final.               pre  cur/post
+                              ↓    ↓
+            null <- a <- b <- c   null
+        '''
+
         while cur:
             post = cur.next  # 先把指向下一个节点的指针保存
             cur.next = pre  # 当前节点指针反转
