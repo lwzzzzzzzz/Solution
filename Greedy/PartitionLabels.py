@@ -59,9 +59,9 @@ class Solution:
 
         s_dict = {}
         for i in range(len(s)):
-            try:
+            if s[i] in s_dict:
                 s_dict[s[i]] = [s_dict[s[i]][0], i]
-            except:
+            else:
                 s_dict[s[i]] = [i, i]
         print(s_dict)
 

@@ -16,6 +16,7 @@
     - [BestTimeToBuyAndSellStock2](./买卖股票的最佳时机.py)
     - [NonDecreasingArray](./NonDecreasingArray.py)
     
+
 2. 多维度优化问题
     这类问题一般有两个或更多的因素需要考虑，我们可以考虑对多个维度one by one地去解决 
     >（ps：我甚至觉得每次只解决一个维度也算贪心，也符合 局部最优->全局最优）
@@ -24,9 +25,21 @@
     - [Candy](./Candy.py)
     - [QueueReconstructionByHeight](./QueueReconstructionByHeight.py)
     
+
 3. 区间问题
     一般包括 区间合并 / 区间去重 / 区间调度等 均可以贪心算法去实现
-    
+   ```python
+   # demo
+   intervals = sorted(intervals, key=lambda x: x[?])  # 按左边界or右边界排序取决于题意
+   for(intervals: interval):
+      if(interval[i][0] > end):  # 判断是否有重复 下一个区间起始位置和当前区间终止位置
+         # 无重复更新区间
+         start = interval[i][0]
+         end = interval[i][1]
+      else:
+        # 有重复则根据题意处理右边界
+        end = max/min(interval[i][1], end)
+   ``` 
     * 该类问题一般不会直接直白地告诉是区间问题，需要先将其抽象为区间。套路一般为先排序后贪心
     - [NonOverlappingIntervals](./NonOverlappingIntervals.py)
     - [MinimumNumberOfArrowsToBurstBalloons](./MinimumNumberOfArrowsToBurstBalloons.py)
