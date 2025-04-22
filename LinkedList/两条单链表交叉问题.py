@@ -33,24 +33,56 @@ def make_loop(head, in_loop):
     return p.next
 
 
-# 链表是否有环，入环点，环长
+'''
+    链表是否有环，入环点，环长
+'''
+
 def is_loop(head):
     if head is None or head.next is None:
         return None
-    slow, fast = head, head.next  # 因为跳出循环的条件是slow == fast，所以让slow和fast都往前走了一步
-    while slow != fast:
-        if fast is None or fast.next is None:  # 如无环fast先到尾部，并返回None
-            return None
+
+    '''
+        attention: 这里循环不是从head出发的，虽然可以检测是否有环，但在后面计算入环点的时候，不满足数学推导前提假设
+    '''
+    # slow, fast = head, head.next  # 因为跳出循环的条件是slow == fast，所以让slow和fast都往前走了一步
+    # while slow != fast:
+    #     if fast is None or fast.next is None:  # 如无环fast先到尾部，并返回None
+    #         return None
+    #     slow = slow.next
+    #     fast = fast.next.next
+    # # 当运行到此处时，说明链表有环
+    # print("linkedList has circle")
+
+    '''
+        初始条件：slow 和 fast 都从 head 开始，满足数学推导的版本，都从head出发
+        <a href="../TwoPointer/FloydCycle.md">具体推导</a>
+    '''
+    slow, fast = head, head
+    while fast and fast.next:
         slow = slow.next
         fast = fast.next.next
-    # 当运行到此处时，说明链表有环
-    print("linkedList has circle")
+        if slow == fast:  # 相遇，说明有环
+            print("linkedList has circle")
+            break
+
+    if fast is None or fast.next is None:  # 无环
+        print("linkedList circle does not exist")
+        return None
+
+    # 环长 (此时fast==slow)
+    tmp = fast.next
+    loop_length = 1
+    while fast != tmp:
+        loop_length += 1
+        tmp = tmp.next
+    print("linkedlist length: ", loop_length)
 
     # 此时让快指针回到链表头，同时快慢指针都以1的速度往下走，再一次遇见时即为链表环入口
     fast = head
     while slow != fast:
         slow = slow.next
         fast = fast.next
+    print("in loop linked node: ", fast.value)
     return fast
 
 
@@ -162,6 +194,7 @@ if __name__ == "__main__":
     head1 = linked1.head.next
     print("first linkedList:", linked1)
     in_loop_node1 = make_loop(head1, 4)
+    is_loop(head1)
     # print(in_loop_node1.value)
     # print("function return in_loop_node:", is_loop(head1).value)
 
