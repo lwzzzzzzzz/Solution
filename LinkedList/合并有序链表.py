@@ -33,62 +33,58 @@ class Solution:
             res = self.merge_two_linked(res, link)
         return res
 
+    def merge_multi_order_linked_recursion(self, links):
+        """
+            递归实现合并多条有序链表。
+            定义递归函数merge，该函数返回合并后的有序链表头节点。
+            1. 当left == right相同时，说明递归边界，返回该条链表本身头节点
+            2. 当left > right相同时，递归结束
+            3. mid分治
+            4. self.merge_two_linked完成合并左右两边链表的功能。之后return返回
+        """
+        def merge(left, right):
+            if left == right:
+                return links[left]
+            if left > right:
+                return
 
-    # class Solution {
-    #     把多个链表的list，通过分治的思想，最后拆分到索引对应的两两单链表的合并后，再逐层返回
-    #     public ListNode mergeKLists(ListNode[] lists) {
-    #         return merge(lists, 0, lists.length - 1);
-    #     }
-    #
-    #     public ListNode merge(ListNode[] lists, int l, int r) {
-    #         if (l == r) {
-    #             return lists[l];
-    #         }
-    #         if (l > r) {
-    #             return null;
-    #         }
-    #         int mid = (l + r) >> 1;
-    #         return mergeTwoLists(merge(lists, l, mid), merge(lists, mid + 1, r));
-    #     }
-    #
-    #     public ListNode mergeTwoLists(ListNode a, ListNode b) {
-    #         if (a == null || b == null) {
-    #             return a != null ? a : b;
-    #         }
-    #         ListNode head = new ListNode(0);
-    #         ListNode tail = head, aPtr = a, bPtr = b;
-    #         while (aPtr != null && bPtr != null) {
-    #             if (aPtr.val < bPtr.val) {
-    #                 tail.next = aPtr;
-    #                 aPtr = aPtr.next;
-    #             } else {
-    #                 tail.next = bPtr;
-    #                 bPtr = bPtr.next;
-    #             }
-    #             tail = tail.next;
-    #         }
-    #         tail.next = (aPtr != null ? aPtr : bPtr);
-    #         return head.next;
-    #     }
-    # }
+            mid = (left + right) >> 1
+            return self.merge_two_linked(merge(left, mid), merge(mid + 1, right))
+
+        return merge(0, len(links) - 1)
 
 
 if __name__ == "__main__":
+    s = Solution()
+
     nums1 = [1, 2, 3, 4, 5, 6, 7, 8]
     linked1 = LinkedList(nums1)
     head1 = linked1.head.next
-    print("first linkedList:", linked1)
+    print("linked1 linkedList:", linked1)
 
     nums2 = [1, 2, 3, 4, 5, 6, 7, 8]
     linked2 = LinkedList(nums2)
     head2 = linked2.head.next
-    print("first linkedList:", linked2)
+    print("linked2 linkedList:", linked2)
 
     nums3 = [1, 2, 3, 4, 5, 6, 7, 8]
     linked3 = LinkedList(nums3)
     head3 = linked3.head.next
-    print("first linkedList:", linked3)
+    print("linked3 linkedList:", linked3)
 
-    s = Solution()
-    # print_linked(s.merge_two_linked(head1, head2))
     print_linked(s.merge_multi_order_linked([head1, head2, head3]))
+
+    linked4 = LinkedList(nums1)
+    head4 = linked4.head.next
+    print("linked4 linkedList:", linked4)
+
+    linked5 = LinkedList(nums2)
+    head5 = linked5.head.next
+    print("linked5 linkedList:", linked5)
+
+    linked6 = LinkedList(nums3)
+    head6 = linked6.head.next
+    print("linked6 linkedList:", linked6)
+
+    # print_linked(s.merge_two_linked(head1, head2))
+    print_linked(s.merge_multi_order_linked_recursion([head4, head5, head6]))

@@ -60,27 +60,3 @@ class RandNode:
         self.value = value
         self.next = None
         self.rand = None
-
-
-class RandLinkedList:
-    def __init__(self, nums):
-        self.head = RandNode(None)
-        self.initial(nums)
-
-    def initial(self, nums):
-        p = self.head
-        for i in nums:
-            p.next = RandNode(i)
-            p = p.next
-
-    def __str__(self):
-        s = ""
-        p = self.head.next
-        while p:
-            s += 'value: ' + str(p.value) + ", "
-            if p.rand:
-                s += 'randValue: ' + str(p.rand.value) + "; "
-            p = p.next
-        return s
-    # def add(self, node):
-    #     self.head.next = node

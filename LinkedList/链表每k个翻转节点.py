@@ -2,7 +2,7 @@
 """
 @Date:       2024/8/27 0:19
 @Author:     wz
-@File:       链表两两交换节点.py
+@File:       链表每k个翻转节点.py
 @Decs:
 """
 from LinkedList import LinkedList, print_linked, Node
@@ -48,9 +48,8 @@ class Solution:
         return pre  # 返回反转后的头节点
 
 
-
 if __name__ == "__main__":
-    nums1 = [1, 2, 3, 4, 5, 6]
+    nums1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
     linked1 = LinkedList(nums1)
     head1 = linked1.head.next
     print("first linkedList:", linked1)
