@@ -42,15 +42,15 @@ class Solution:
         方法一：最简单的方法，直接整一个栈，丢进去，再比对出栈元素和遍历元素是否相等，有不相等则返回false
         O(N) O(N)
         """
-        stack = queue.LifoQueue()
+        stack = []
         p = self.p
         while p:
-            stack.put(p.value)
+            stack.append(p.value)
             p = p.next
 
         p = self.p
-        while not stack.empty():
-            if p.value != stack.get():
+        while stack:
+            if p.value != stack.pop(-1):
                 return False
             p = p.next
         return True
@@ -70,15 +70,15 @@ class Solution:
             fast = fast.next.next
             slow = slow.next
 
-        stack = queue.LifoQueue()
+        stack = []
         p = slow.next
         while p:
-            stack.put(p.value)
+            stack.append(p.value)
             p = p.next
 
         p = self.p
-        while not stack.empty():
-            if p.value != stack.get():
+        while stack:
+            if p.value != stack.pop(-1):
                 return False
             p = p.next
         return True
