@@ -14,9 +14,6 @@
 向右轮转 2 步: [6,7,1,2,3,4,5]
 向右轮转 3 步: [5,6,7,1,2,3,4]
 
-题解：
-先翻转整个数组0:len(nums)-1；再翻转0:k-1；最后翻转k:len(nums)-1
-唯一要注意的是，当k大于len(nums)，则取k = k % len(nums)
 """
 
 class Solution:
@@ -31,6 +28,11 @@ class Solution:
                 left += 1
                 right -= 1
 
+        """
+        题解：先翻转整个数组0:len(nums)-1；再翻转0:k-1；最后翻转k:len(nums)-1
+             // 唯一要注意的是，当k大于len(nums)，则取k = k % len(nums)
+        [1,2,3,4,5,6,7] -> [7,6,5,4,3,2,1] -> [5,6,7,4,3,2,1] -> [5,6,7,1,2,3,4] 
+        """
         k = k % len(nums)  # k大于len(nums)
         reverse(nums, 0, len(nums) - 1)
         reverse(nums, 0, k - 1)

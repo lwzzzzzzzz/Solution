@@ -11,7 +11,7 @@ class Solution:
     def twoSum(self, numbers, target):
 
         """
-            对撞指针做法 比较简单
+            对撞指针做法 比较简单 (有序数组才可以用)
         """
         # left, right = 0, len(numbers) - 1
         # while right > left:

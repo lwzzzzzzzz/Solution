@@ -18,19 +18,17 @@ class Solution:
     def __init__(self, nums):
         self.nums = nums
 
-    def find_leftmost_index(self, given):
+    def find_leftmost_index(self, target):
         left = 0
         right = len(self.nums) - 1
         res = -1
         while left <= right:
             mid = (right - left) // 2 + left
-            if given < self.nums[mid]:
-                res = mid
+            if target < self.nums[mid]:
+                res = mid  # 因为本身进入该if分支的就是大于given的值，所以临时标记。当最后left==right的时候，mid就是第一个大于target的位置
                 right = mid - 1
-            elif given >= self.nums[mid]:
+            elif target >= self.nums[mid]:  # 因为要找第一个大于target的值，所以相等时，应该吧搜索区间往大于target的位置移动
                 left = mid + 1
-                # if mid <= given:
-                #     res = mid
         return res
 
 

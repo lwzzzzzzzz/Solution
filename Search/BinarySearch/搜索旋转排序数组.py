@@ -8,7 +8,7 @@
 
 """
 输入：nums = [4,5,6,0,1,2], target = 0
-输出：4
+输出：3
 """
 
 class Solution:
@@ -29,13 +29,12 @@ class Solution:
         print("left:", nums[left], " right:", nums[right])
 
         # 旋转点
-        # 因为当最后一次进入二分时，left==right都落在旋转点位置，nums[mid]=旋转点值必然小于nums[0]
-        # 所以此时right-=1，left不动
+        # 因为当最后一次进入二分时，left==right都落在旋转点位置，nums[mid]=旋转点值时，挪动了left使之跳出循环，所以此时旋转点为right位置
         rotate = right
-        if target > nums[-1]:
+        if target > nums[-1]:  # 当目标值大于最后一个元素，则目标值在前半段递增区间内
             left = 0
             right = rotate - 1
-        elif target < nums[-1]:
+        elif target < nums[-1]:  # 当目标值小于最后一个元素，则目标值在后半段递增区间内
             left = rotate
             right = len(nums) - 1
         else:

@@ -28,12 +28,12 @@ class Solution():
     '''
 
     def longest_length(self, s, k):
-        res = 0
-        res_index = []
+        max_len = 0
+        max_substring = ""
         window = {}
 
         left, right = 0, 0
-        for i in range(len(s)):
+        while right < len(s):
             if s[right] in window:
                 window[s[right]] += 1
             else:
@@ -48,12 +48,12 @@ class Solution():
             if len(window.keys()) == k:
                 # res = max(right - left + 1, res)
                 tmp_length = right - left + 1
-                if res < tmp_length:
-                    res = tmp_length
-                    res_index = [left, right]
+                if max_len < tmp_length:
+                    max_len = tmp_length
+                    max_substring = s[left: right + 1]
 
             right += 1
-        return res, s[res_index[0]: res_index[1]+1]
+        return max_len, max_substring
 
 
 if __name__ == "__main__":

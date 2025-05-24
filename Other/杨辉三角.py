@@ -16,7 +16,7 @@ class Solution:
                 if j == 0 or j == i:
                     row.append(1)
                 else:
-                    row.append(res[i - 1][j] + res[i - 1][j - 1])
+                    row.append(res[i - 1][j] + res[i - 1][j - 1])  # 当前值等于两肩之和
             res.append(row)
         return res
 

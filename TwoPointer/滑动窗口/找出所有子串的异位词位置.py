@@ -8,34 +8,41 @@
 
 
 class Solution:
-    def function(self, s: str, p: str) -> list[int]:
+    def find_anagrams(self, s: str, p: str):
         res = []
-        if len(s) < len(p):
+        len_p = len(p)
+        len_s = len(s)
+
+        if len_p > len_s:
             return res
 
-        s_len, p_len = len(s), len(p)
-        s_count = [0] * 26
+        # 统计 p 的字符频率
+        window_count = [0] * 26
         p_count = [0] * 26
-        for i in range(p_len):
-            s_count[ord(s[i]) - 97] += 1
-            p_count[ord(p[i]) - 97] += 1
+        for ch in p:
+            p_count[ord(ch) - ord('a')] += 1
 
-        if s_count == p_count:  # 先判断是否相等，方便下面进行循环
-            res.append(0)
+        left = 0
+        right = 0
+        while right < len_s:
+            # 将右指针对应字符加入窗口
+            window_count[ord(s[right]) - ord('a')] += 1
 
-        left, right = 0, len(p) - 1
-        while right <= len(s) - 2:
-            # 先把当前位置的字符去掉，左侧窗口再往前走
-            s_count[ord(s[left]) - 97] -= 1
-            left += 1
-            # 右侧窗口先往前走，再把当前位置的字符加进来
-            right += 1
-            s_count[ord(s[right]) - 97] += 1
+            # 如果窗口大小超过 p 的长度，收缩左边界
+            while right - left + 1 > len_p:
+                window_count[ord(s[left]) - ord('a')] -= 1
+                left += 1
 
-            if s_count == p_count:
+            # 当窗口大小正好等于 p 长度时，比较是否匹配
+            if window_count == p_count:
                 res.append(left)
+                print(s[left: left + len_p])
+
+            right += 1
+
         return res
+
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.function("zcfazgz", "z"))
+    print(s.find_anagrams("zcfazgz", "za"))

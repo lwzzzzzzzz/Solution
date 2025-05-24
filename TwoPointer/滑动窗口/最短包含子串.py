@@ -2,14 +2,13 @@
 """
 @Date:       2021/5/19 1:20 下午
 @Author:     wz
-@File:       MinimumWindowSubstring.py
+@File:       最短包含子串.py
 @Decs:
 """
 
 '''
 
-给定两个字符串S 和T，求S 中包含T 所有字符的最短连续子字符串的长度，同时要求时间
-复杂度不得超过O(n)
+给定两个字符串S和T，求S中包含T所有字符的最短连续子字符串的长度，并给出子串，同时要求时间复杂度不得超过O(n)
 
 
 Input: S = "ADOBECODEBANC", T = "ABC"
@@ -23,7 +22,10 @@ class Solution:
 
     def min_window(self, S, T):
         """
-        思路就是：先移动右指针找到符合题意的区间，再移动左指针缩短区间至最短。
+        思路就是：双指针窗口
+            1. 初始化两个map（通过map判断当前窗口内的子串是否满足题意）
+            2. 先移动右指针找到符合题意的区间
+            3. 再尝试移动左指针缩短区间至最短
             直至右指针到S串的最后，最后再移动一次左指针缩短区间，得到最短子串和其起始索引
 
             PS：因无顺序要求，判断是否符合题意可以用hashMap去完成
@@ -34,32 +36,32 @@ class Solution:
         min_len = len(S) + 1
 
         need, window = {}, {}
-        for s in T:
-            try:
-                need[s] = need[s] + 1
-            except:
-                need[s] = 1
-                window[s] = 0
+        for t in T:
+            if t in need:
+                need[t] = need[t] + 1
+            else:
+                need[t] = 1
+                window[t] = 0
 
         left, right = 0, 0
 
         # 移动右指针，至满足题意
-        while right <= len(S):
+        while right < len(S):
+
+            if S[right] in window:
+                window[S[right]] += 1
 
             # 当满足题意时，尝试移动左指针缩短长度；如一直未满足题意，sub / start / end等值不会变化
             while self.satisfied(need, window):
+                if right - left + 1 < min_len:  # 如果当前窗口更短，更新最短子串
+                    sub = S[left: right + 1]
+                    # start = left  // 如果需要返回下标
+                    # end = right + 1
 
-                if right - left < min_len:
-                    start, end = left, right
-                    min_len = end - start
-                    sub = S[start: end]
-
-                if window.__contains__(S[left]):
+                if S[left] in window:  # 左指针字符在 T 中，减少计数
                     window[S[left]] -= 1
                 left += 1
 
-            if right < len(S) and window.__contains__(S[right]):
-                window[S[right]] += 1
             right += 1
 
         print("start, end:", start, end)

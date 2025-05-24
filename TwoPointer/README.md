@@ -16,8 +16,8 @@
 
 3、对自身做快慢指针
     以快慢指针维护一个滑动窗口(slide window)，处理或判断滑动窗口内的子序列，返回需要的结果
-    - [MinimumWindowSubstring](./MinimumWindowSubstring.py)
-    - [LongestSubstringWithKUniqueCharacters](k个字符组成的最长子字符串.py)    
+    - [MinimumWindowSubstring](滑动窗口/最短包含子串.py)
+    - [LongestSubstringWithKUniqueCharacters](滑动窗口/k个字符组成的最长子字符串.py)    
         
    > 其本质就是通过滑动窗口穷尽所有符合要求的连续子序列，再在窗口移动（穷举）过程中保留最优解
 
