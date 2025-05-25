@@ -9,9 +9,9 @@
 '''
 给定一无序且两两之间为不相等数字的list，找到其中一个局部最小的位置
 
-input：[5,7,7,8,8,10]  
+input：[5,7,8,10]  
 output：0
-注：因为5,7的顺序，5为局部最小值，数组中不止一处，输出一处即可
+注：因为5,7的顺序，5为局部最小值
 
 input：[3,2,7,6,5,4]  
 output：1
@@ -38,6 +38,9 @@ class Solution:
             mid = (right - left) // 2 + left
             if self.nums[mid - 1] > self.nums[mid] and self.nums[mid] < self.nums[mid + 1]:
                 return mid
+            # 如果mid位置不是局部最小值，那把搜索区间缩小到更小的地方去
+            #    1.对于更小值在mid左侧时，移动right
+            #    2.对于更小值在mid右侧时，移动left
             elif self.nums[mid - 1] <= self.nums[mid]:
                 right = mid - 1
             elif self.nums[mid] >= self.nums[mid + 1]:

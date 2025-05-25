@@ -2,7 +2,7 @@
 """
 @Date:       2022/6/7 0:57
 @Author:     wz
-@File:       每日温度_单调栈.py
+@File:       每日温度_单调队列.py
 @Decs:
 """
 
@@ -39,5 +39,5 @@ class Solution:
 if __name__ == "__main__":
     temperatures = [5, 7, 7, 3, 8, 9]
     s = Solution()
-    # print("res: ", s.dailyTemperatures(temperatures))
+    print("res: ", s.dailyTemperatures(temperatures))
 
