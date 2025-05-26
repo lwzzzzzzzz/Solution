@@ -21,7 +21,7 @@ class Solution:
         for i in range(len(nums)):
             pre_sum += nums[i]
             # 利用前缀和数组 pre_sum_j - pre_sum_i = 某子序列和k 的性质，
-            # 如果 pre_sum_j - 某子序列和k 在pre_sum_dict内，说明存在子序列和为k，res + 1
+            # 如果 pre_sum_j - 某子序列和k 在pre_sum_dict内，说明存在子序列和为k，res加上pre_sum - k出现次数
             if pre_sum - k in pre_sum_dict.keys():
                 res += pre_sum_dict[pre_sum - k]
 

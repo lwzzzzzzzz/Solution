@@ -2,7 +2,7 @@
 """
 @Date:       2022/6/7 0:57
 @Author:     wz
-@File:       每日温度_单调队列.py
+@File:       每日温度_单调栈.py
 @Decs:
 """
 
@@ -10,7 +10,7 @@
 """
 题意：给定一组每天的温度[5, 7, 7, 3, 8, 9]，对于所有天数，找到过多少天后温度比当天高（后续没有比当天高的赋值为0）
 
-in: [5, 7, 7, 3, 8, 9]
+in: [5, 7, 8, 3, 8, 9]
 out: [1, 3, 2, 1, 1, 0]
 
 """
@@ -30,14 +30,14 @@ class Solution:
         for i in range(len(temperatures)):
             # 当遍历到的元素比栈顶元素大的话，找到了栈顶元素根据题意的结果；同理对于栈内所有元素，当满足下标i位置和栈顶元素满足条件，反复出栈返回结果
             while stack1 and temperatures[stack1[-1]] < temperatures[i]:
-                peek = stack1.pop(0)  # 处理栈底元素，返回栈底元素下标
-                res[peek] = i - peek
+                peek = stack1.pop()  # 处理栈顶元素，返回栈顶元素下标
+                res[peek] = i - peek  # 多少天后温度更高 = 当前下标 - 栈顶元素下标
             stack1.append(i)  # 下标入栈
         return res
 
 
 if __name__ == "__main__":
-    temperatures = [5, 7, 7, 3, 8, 9]
+    temperatures = [5, 7, 8, 3, 8, 9]
     s = Solution()
     print("res: ", s.dailyTemperatures(temperatures))
 

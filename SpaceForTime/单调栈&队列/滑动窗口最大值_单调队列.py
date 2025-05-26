@@ -2,7 +2,7 @@
 """
 @Date:       2024/8/23 0:23
 @Author:     wz
-@File:       滑动窗口最大值.py
+@File:       滑动窗口最大值_单调队列.py
 @Decs:
 """
 
