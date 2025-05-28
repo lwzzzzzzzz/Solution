@@ -14,7 +14,7 @@
     - [AssignCookies](./AssignCookies.py)
     - [CanPlaceFlowers](./CanPlaceFlowers.py)
     - [BestTimeToBuyAndSellStock2](./买卖股票的最佳时机.py)
-    - [NonDecreasingArray](./NonDecreasingArray.py)
+    - [NonDecreasingArray](./有序数组合并.py)
     
 
 2. 多维度优化问题
