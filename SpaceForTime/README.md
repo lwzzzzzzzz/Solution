@@ -1,7 +1,7 @@
 ### 空间换时间的技巧
 与一般来说的哈希表考察问题相似，实质上有很多数据结构都是通过空间换时间，只不过适用场景不同而已。
 
-- ####差分数组 Differential Queues
+- #### 差分数组 Differential Queues
     
     差分数组适用于对list有反复的加减操作的情况，比如上下车问题，航班航线问题。 
     
@@ -28,7 +28,7 @@
   return res
   ``` 
 
-- ####单调栈 Monotonic Stacks
+- #### 单调栈 Monotonic Stacks
     
   单调栈适用于对list前面某些下标的结果依赖后面某个下标的结果。比如每日温度问题。 
   > 也举个例子：\
@@ -40,7 +40,7 @@
   for i in range(len(temperatures)):
       # 当遍历到的元素比栈顶元素大的话，找到了栈顶元素根据题意的结果；同理对于栈内所有元素，当满足下标i位置和栈顶元素满足条件，反复出栈返回结果
       while stack1 and temperatures[stack1[-1]] < temperatures[i]:
-          peek = stack1.pop(0)  # 处理栈顶元素，返回栈顶元素下标
+          peek = stack1.pop()  # 处理栈顶元素，返回栈顶元素下标
           res[peek] = i - peek
       stack1.append(i)  # 下标入栈
   return res
