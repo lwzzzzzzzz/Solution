@@ -7,19 +7,17 @@
 """
 
 
-def sort1(arr, left, right):
+def merge_sort1(arr, help1, left, right):
     if left == right:
         return
 
     mid = (right - left) // 2 + left
-    sort1(arr, left, mid)  # 先排左侧
-    sort1(arr, mid + 1, right)  # 再排右侧
-    merge(arr, left, mid, right)  # 合并左右
+    merge_sort1(arr, help1, left, mid)  # 先排左侧
+    merge_sort1(arr, help1, mid + 1, right)  # 再排右侧
+    merge(arr, help1, left, mid, right)  # 合并左右
 
 
-def merge(arr, left, mid, right):
-    #  构建辅助空间
-    help1 = [0] * len(arr)  # 这里可以不用len(arr)这么长，因为可以初始化ptr=0，43行arr的下标写成index=left+i
+def merge(arr, help1, left, mid, right):
 
     #  将left-mid-right区间合并成有序
     ptr, l, r = left, left, mid + 1
@@ -45,6 +43,9 @@ def merge(arr, left, mid, right):
         arr[index] = help1[index]
 
 
-arr = [3, 1, 6, 8, 2, 7]
-sort1(arr, 0, len(arr) - 1)
-print(arr)
+if __name__ == "__main__":
+    arr = [3, 1, 6, 8, 2, 7]
+    #  构建辅助空间
+    help1 = [0] * len(arr)  # 这里可以不用len(arr)这么长，因为可以初始化ptr=0，43行arr的下标写成index=left+i
+    merge_sort1(arr, help1, 0, len(arr) - 1)
+    print(arr)

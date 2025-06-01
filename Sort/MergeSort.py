@@ -5,7 +5,7 @@
 @File:       MergeSort.py
 @Decs:
 """
-from LinkedList.LinkedList import Node, LinkedList
+from LinkedList.LinkedList import Node, LinkedList, print_linked
 
 
 class MergeSort:
@@ -45,8 +45,7 @@ class MergeSort:
             return nums
 
         # 拆分list （下标控制 逻辑拆分）在分布式大规模排序中进行物理拆分
-        mid = start + (
-                    end - start) // 2  # (start + end) >> 1 与 start + (end - start) >> 1 不同在于，当start + end可能超过Integer.MAX
+        mid = start + (end - start) // 2
         start1, end1 = start, mid
         start2, end2 = mid + 1, end
 
@@ -82,11 +81,11 @@ class MergeSort:
     def recursive_merge_linked_sort(self, head):
         if not head or not head.next:
             return head
-        slow, fast = head, head.next
-        while fast and fast.next:  # 通过快慢指针寻找中点mid
+        slow, fast = head, head
+        while fast.next and fast.next.next:  # 通过快慢指针寻找中点mid
             fast = fast.next.next
             slow = slow.next
-        mid, slow.next = slow.next, None
+        mid, slow.next = slow.next, None  # slow.next = None非常必要，断开前半段链表
 
         left = self.recursive_merge_linked_sort(head)
         right = self.recursive_merge_linked_sort(mid)
@@ -123,6 +122,4 @@ if __name__ == "__main__":
     print(linked)
     p = sort.recursive_merge_linked_sort(head)
     print("链表归并排序结果为:", end=' ')
-    while p:
-        print(p.value, end=' ')
-        p = p.next
+    print_linked(p)

@@ -20,7 +20,7 @@ class Solution:
                 continue
 
             target = 0 - nums[i]
-            left, right = i + 1, len(nums) - 1
+            left, right = i + 1, len(nums) - 1  # left从i+1开始遍历，避免重复
             while left < right:
                 if nums[left] + nums[right] < target:
                     left += 1

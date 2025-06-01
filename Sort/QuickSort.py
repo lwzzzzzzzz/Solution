@@ -27,6 +27,9 @@ class Solution:
         self.quick_sort(index + 1, right)
 
     def partition(self, left, right):
+        """
+            二色快排模板
+        """
         p_l, ptr = left, left
         while ptr <= (right - 1):
             if self.nums[ptr] <= self.nums[right]:  # 条件'<' '<=' '>' '>=' 分别表示不同含义，顺序or逆序，是否考虑相等的情况
@@ -48,10 +51,38 @@ class Solution:
         # 为只剩两个数的情况不需要特殊处理，本质在于有pivot作为缓冲，准确指示交换位置的同时，不会导致数组越界。
         return p_l
 
+    def three_quick_sort(self, left, right):
+
+        if left >= right:
+            return
+
+        less, greater = self.three_partition(left, right)
+        self.three_quick_sort(left, less - 1)
+        self.three_quick_sort(greater + 1, right)
+
+    def three_partition(self, left, right):
+        """
+            三色快排模板
+        """
+        pivot = self.nums[right]
+        less, ptr, greater = left, left, right
+        while ptr <= greater:
+            if self.nums[ptr] < pivot:
+                self.nums[less], self.nums[ptr] = self.nums[ptr], self.nums[less]
+                ptr += 1
+                less += 1
+            elif self.nums[ptr] == pivot:
+                ptr += 1
+            elif self.nums[ptr] > pivot:
+                self.nums[greater], self.nums[ptr] = self.nums[ptr], self.nums[greater]
+                greater -= 1
+        return less, greater
+
 
 if __name__ == "__main__":
     nums = [3, 1, 5, 3, 3]
     s = Solution(nums)
     left, right = 0, len(nums) - 1
-    s.quick_sort(left, right)
+    s.three_quick_sort(left, right)
+    # s.quick_sort(left, right)
     print(s.nums)

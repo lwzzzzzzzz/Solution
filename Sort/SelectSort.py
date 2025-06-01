@@ -18,37 +18,33 @@ class SelectSort():
     def __init__(self, nums):
         self.nums = nums
 
-
     def select_sort2(self):
         for i in range(len(self.nums)):
             min_index = i
             for j in range(i, len(self.nums)):
                 if self.nums[min_index] > self.nums[j]:
                     min_index = j
-            minimum = self.nums[min_index]
-            self.nums[min_index] = self.nums[i]
-            self.nums[i] = minimum
+            self.nums[i], self.nums[min_index] = self.nums[min_index], self.nums[i]
+
         return self.nums
-
-
 
     def select_sort(self):
 
         # selectSort每轮外层循环确定一个最小or最大值位置，故最多进行len(self.nums)次循环
         for i in range(len(self.nums)):
-            min = i
+            min_index = i
             # 纪录最小or最大值位置，且不需要对比已被确定的元素，故比较次数为 (n-1)*(n-2)/2 次
             for j in range(i + 1, len(self.nums)):
-                if self.nums[j] < self.nums[min]:
-                    min = j
+                if self.nums[j] < self.nums[min_index]:
+                    min_index = j
             if min != i:
-                self.nums[i], self.nums[min] =  self.nums[min], self.nums[i]
+                self.nums[i], self.nums[min_index] = self.nums[min_index], self.nums[i]
 
         return self.nums
 
 
 if __name__ == "__main__":
-    nums = [1,4,6,7,2,4,6,7,9,100]
+    nums = [1, 4, 6, 7, 2, 4, 6, 7, 9, 100]
     sort = SelectSort(nums)
     # print(sort.select_sort())
     print(sort.select_sort2())
