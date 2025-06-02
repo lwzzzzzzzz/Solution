@@ -6,14 +6,15 @@
 @Decs:
 """
 
-class BubbleSort():
 
+class BubbleSort():
     """
     naive sort algorithm
     时间复杂度：best:O(N^2)  worst:O(N^2) mean:O(N^2)
     空间复杂度：O(1)
     属性：稳定
     """
+
     def __init__(self, nums):
         self.nums = nums
 
@@ -31,8 +32,8 @@ class BubbleSort():
 
         return self.nums
 
+
 if __name__ == "__main__":
-    nums = [1,4,6,7,2,4,6,7,9,100]
+    nums = [1, 4, 6, 7, 2, 4, 6, 7, 9, 100]
     sort = BubbleSort(nums)
     print(sort.bubble_sort())
-

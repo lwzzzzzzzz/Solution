@@ -24,12 +24,15 @@ class Solution:
     """
         该题和岛屿问题是相似的，都是对矩阵做dfs的搜索，不过这题的回溯需要恢复现场，而岛屿问题不需要恢复现场
     """
+
     def exist(self, board, word):
         if not word:
             return False
 
         n = len(board)
         m = len(board[0])
+
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]  # 上下左右
 
         def dfs(board, word, index, row, col):
             if index == len(word):
@@ -42,15 +45,22 @@ class Solution:
                 return False
 
             board_val = board[row][col]
-            board[row][col] = '0'  # 处理该节点
+            board[row][col] = '0'  # 标记为已访问（任意一个非给定word字符即可）
             # 该过程表示，只要后续有一个方向满足题意，则当前位置可以取，可以继续往下递归，return true 所以全部用or连接
-            result = dfs(board, word, index + 1, row - 1, col) \
+            found = dfs(board, word, index + 1, row - 1, col) \
                      or dfs(board, word, index + 1, row + 1, col) \
                      or dfs(board, word, index + 1, row, col - 1) \
                      or dfs(board, word, index + 1, row, col + 1)
+            # found = False
+            # for dx, dy in directions:
+            #     new_row, new_col = row + dx, col + dy
+            #     if dfs(board, word, index + 1, new_row, new_col):
+            #         found = True
+            #         break
+
             board[row][col] = board_val  # 恢复现场
 
-            return result
+            return found
 
         for i in range(n):
             for j in range(m):

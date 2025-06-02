@@ -26,18 +26,18 @@ class Solution:
     def sort(self):
         h = []
         i = 0
-        while i <= self.k:
+        while i <= self.k:  # k+1大小的堆
             heapq.heappush(h, self.nums[i])  # 三方包默认是最小堆
             i += 1
 
         index = 0
         while i <= len(self.nums) - 1:
-            self.nums[index] = heapq.heappop(h)
-            heapq.heappush(h, self.nums[i])
+            self.nums[index] = heapq.heappop(h)  # 每次都出栈最小元素并赋值回原数组，因为原数组的值已经在堆内，所以不冲突
+            heapq.heappush(h, self.nums[i])  # 新元素入堆
             index += 1
             i += 1
 
-        while h:
+        while h:  # 处理剩下堆内元素
             self.nums[index] = heapq.heappop(h)
             index += 1
 

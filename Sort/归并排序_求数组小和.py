@@ -7,10 +7,10 @@
 """
 
 '''
-给一个数组，求其小和
+给一个数组，求其小和（小和为该数组左侧所有小于该值的和）
 
 input：[3,1,5,4,3]  对于数组中5，小和为3+1=4；对于数组中2，小和为1=1
-output：0+0+4+1+3=8
+output：0+0+4+4+1=9
 '''
 
 
@@ -49,6 +49,8 @@ class Solution:
             # 当右侧严格大于左侧时，根据小和的定义才进行求和；此处牺牲了排序算法的稳定性，保障小和逻辑正确
             if self.nums[p_l] < self.nums[p_r]:
                 help[ptr] = self.nums[p_l]
+                # 核心：当self.nums[p_l] < self.nums[p_r]时，又有merge前的左右两边都是有序的，所以对于所有p_r右侧的元素，
+                #      都应该是大于self.nums[p_l]的，此时由小和定义，对于self.nums[p_l]元素在这次归并产生小和总数为self.nums[p_l] * (right - p_r + 1)
                 self.res += (self.nums[p_l] * (right - p_r + 1))
                 p_l += 1
             else:
