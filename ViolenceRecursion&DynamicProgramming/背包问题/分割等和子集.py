@@ -12,6 +12,8 @@
 输出：true
 解释：数组可以分割成 [1, 5, 5] 和 [5,6] 。
 """
+
+
 class Solution:
     def function(self, nums):
         if len(nums) < 2:
@@ -60,6 +62,6 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-    nums = [1,2,3,3,3]
+    nums = [1, 2, 3, 3, 3]
     print(s.function(nums))
     print(s.function2(nums))

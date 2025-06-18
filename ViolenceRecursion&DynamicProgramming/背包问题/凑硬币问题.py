@@ -21,7 +21,6 @@ class Solution:
 
     def recursion_combination(self, sub_price, index):
         """
-        easy
         1、base case有两种，当前剩余待凑额度为0，则返回1；一种是当前已经尝试完所有硬币，到达列表末尾，仍然不能满足，则返回0
         2、当前硬币该不该选择，则分情况讨论
         """
@@ -60,7 +59,6 @@ class Solution:
 
     def recursion_combination2(self, limit_price, accumulate_price, index):
         """
-        easy
         1、base case有两种，当前剩余待凑额度为0，则返回1；一种是当前已经尝试完所有硬币，到达列表末尾，仍然不能满足，则返回0
         2、当前硬币该不该选择，则分情况讨论
         """
@@ -112,13 +110,12 @@ class Solution:
 
     def recursion_min_coins(self, sub_price, index, cnt):
         """
-        easy
         1、base case有两种，当前剩余待凑额度为0，则返回当前有多少枚硬币；一种是当前已经尝试完所有硬币，到达列表末尾，仍然不能满足，则返回初始值0
         2、当前硬币该不该选择，则分情况讨论
         """
 
         if index == len(self.coins):
-            # 当遍历到最后时，待凑金额为0，则返回最后需要cnt块；待凑金额为不为，表示根本凑不出这些钱，返回-1
+            # 当遍历到最后时，待凑金额为0，则返回最后需要cnt块；待凑金额为不为0，表示根本凑不出这些钱，返回-1
             if sub_price == 0:
                 return cnt
             else:
@@ -182,7 +179,6 @@ class Solution:
 
     def dp_min_coins(self, limit_price):
         """
-        easy
         1、base case有两种，当前剩余待凑额度为0，则返回当前有多少枚硬币；一种是当前已经尝试完所有硬币，到达列表末尾，仍然不能满足，则返回初始值0
         2、当前硬币该不该选择，则分情况讨论
         """
@@ -217,29 +213,6 @@ class Solution:
         print(dp)
         return dp[0][limit_price]
 
-    def one_list_dp(self, limit):
-        n = len(self.coins)
-        dp = [[0] * (limit + 1) for _ in range(n+1)]
-        # dp[0] = 1
-        # for i in range(n):
-        #     for c in range(limit, -1, -1):
-        #         if c >= self.coins[i]:
-        #             dp[c] = dp[c] + dp[c-self.coins[i]]
-
-        for i in range(n + 1):
-            dp[i][0] = 1
-
-        for c in range(1, limit + 1):
-            for i in range(0, n):
-                if c >= self.coins[i]:
-                    dp[i+1][c] = dp[i][c] + dp[i][c - self.coins[i]]
-                else:
-                    dp[i+1][c] = dp[i][c]
-
-        print(dp)
-        return dp[n][limit]
-
-
 
 if __name__ == "__main__":
     coins = [1, 3, 3, 1, 1, 2]
@@ -254,6 +227,3 @@ if __name__ == "__main__":
     s.min_coins(limit)
     s.min_coins2(limit)
     print("min coins dp ways: ", s.dp_min_coins(limit))
-
-    # s.one_list_dp(limit)
-    print("min coins one_list_dp ways: ", s.one_list_dp(limit))
