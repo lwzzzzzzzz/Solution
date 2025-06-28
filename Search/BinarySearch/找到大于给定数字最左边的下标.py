@@ -35,4 +35,4 @@ class Solution:
 if __name__ == "__main__":
     nums = [5, 7, 7, 8, 8, 10]
     s = Solution(nums)
-    print(s.find_leftmost_index(5))
+    print(s.find_leftmost_index(7))

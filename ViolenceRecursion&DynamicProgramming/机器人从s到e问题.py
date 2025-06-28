@@ -39,29 +39,21 @@ class Solution:
         return self.recursion_s2e(s + 1, e, k - 1) + self.recursion_s2e(s - 1, e, k - 1)
 
     def dp_s2e(self):
-        # 其中j表示起点位置，i表示还剩多少步
-        dp = [[-1 for j in range(self.n)] for i in range(self.k + 1)]
-
-        for j in range(len(dp[0])):
-            if j == self.e-1:
-                dp[0][j] = 1
-            else:
-                dp[0][j] = 0
-
-        for i in range(1, len(dp)):
-            for j in range(len(dp[i])):
-                if j == 0:
-                    dp[i][j] = dp[i-1][j+1]
-                elif j == self.n-1:
-                    dp[i][j] = dp[i-1][j-1]
-                else:
-                    dp[i][j] = dp[i-1][j-1] + dp[i-1][j+1]
+        # dp[i][j]: i步后到达j位置的方法数
+        dp = [[0] * (self.n + 1) for _ in range(self.k + 1)]  # 避免边界判断
         print(dp)
+        dp[0][self.s] = 1  # 初始位置
 
-        # 这里千万不要返回dp[self.k][self.e-1]，整个dp和e位置其实没有关系，
-        # 要牢记dp的定义，这里的dp[i][j]表达式定义为给定跑i步，j位置为起点的情况下，方法有多少次，显然应该是dp[self.k][self.s-1] 
-        return dp[self.k][self.s-1]
+        for i in range(1, self.k + 1):
+            for j in range(1, self.n + 1):
+                if j == 1:
+                    dp[i][j] = dp[i - 1][j + 1]  # 到左边界了，只能从右边跳过来
+                elif j == self.n:
+                    dp[i][j] = dp[i - 1][j - 1]  # 到右边界了，只能从左边跳过来
+                else:
+                    dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j + 1]  # 从左边跳过来 + 从右边跳过来
 
+        return dp[self.k][self.e]
 
 
 if __name__ == "__main__":

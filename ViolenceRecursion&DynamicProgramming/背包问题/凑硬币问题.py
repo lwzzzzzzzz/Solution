@@ -19,7 +19,7 @@ class Solution:
         print("recursion_combination: ", self.recursion_combination(limit_price, 0))
         print("recursion_combination2: ", self.recursion_combination2(limit_price, 0, 0))
 
-    def recursion_combination(self, sub_price, index):
+    def recursion_combination(self, sub_price, index):  # ⭐ 推荐
         """
         1、base case有两种，当前剩余待凑额度为0，则返回1；一种是当前已经尝试完所有硬币，到达列表末尾，仍然不能满足，则返回0
         2、当前硬币该不该选择，则分情况讨论
@@ -37,24 +37,23 @@ class Solution:
         else:  # 否则只有不选这一种选择
             return self.recursion_combination(sub_price, index + 1)
 
-    def dp_combination(self, limit_price):
-        # dp[i][j]的含义为，当遍历到第i个硬币时，待凑金额还剩j时的组合数
+    def dp_combination(self, limit_price):  # ⭐ 推荐（本质为 0-1 背包问题中的组合计数方式）
+        # dp[i][j]的含义为，当从后往前遍历到第i个硬币时，凑金额为j时的组合数
         dp = [[0 for j in range(limit_price + 1)] for i in range(len(self.coins) + 1)]
 
         # 初始化
         for i in range(len(dp)):
-            dp[i][0] = 1
-        # for j in range(len(dp[0])):
-        #     dp[len(self.coins)][j] = 0
+            dp[i][0] = 1  # 当要凑金额为0时，当然只有一种方法
         print(dp)
 
         for i in range(len(self.coins) - 1, -1, -1):
             for j in range(1, len(dp[i])):
-                if j >= self.coins[i]:
+                if j >= self.coins[i]:  # 当要凑金额大于当前硬币面额，则可以选择 拿or不拿 这枚硬币
                     dp[i][j] = dp[i + 1][j - self.coins[i]] + dp[i + 1][j]
                 else:
                     dp[i][j] = dp[i + 1][j]
         print(dp)
+        # 因为是从后往前遍历的，所以dp[0][limit_price]表示遍历完所有硬币之后，凑金额limit_price的方法有多少种
         return dp[0][limit_price]
 
     def recursion_combination2(self, limit_price, accumulate_price, index):
@@ -99,6 +98,10 @@ class Solution:
                     dp[i][j] = dp[i + 1][j]
         print(dp)
         return dp[0][0]
+
+
+
+
 
     def min_coins(self, limit_price):
 
